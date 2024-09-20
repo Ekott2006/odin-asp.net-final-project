@@ -1,0 +1,40 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using WebApp.DTOs.Posts
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="all-posts">    
+    <div class="posts">
+        <partial name="_CreatePostPartial" model="Model.CreatePostViewModel"/>
+        @foreach (PostResponse post in Model.PostsResponse.Posts)
+        {
+            @await Component.InvokeAsync("PostItem", post)
+        }
+    </div>
+    @* Add Previous and Next *@
+    @{
+        string prevDisabled = Model.PostsResponse.Page == 1 ? "disabled" : "";
+        string nextDisabled = Model.PostsResponse.Page == Model.PostsResponse.Pages ? "disabled" : "";
+    }
+
+    <nav aria-label="Posts navigation">
+        <ul class="pagination">
+            <li class="page-item @prevDisabled">
+                <a class="page-link" asp-route-pageNumber="@(Model.PostsResponse.Page - 1)">Previous</a>
+            </li>
+            @for (int i = 1; i <= Model.PostsResponse.Pages; i++)
+            {
+                <li class="page-item @(Model.PageNumber == i ? "active" : "")"
+                    aria-current="@(Model.PageNumber == i ? "page" : "")">
+                    <a class="page-link" asp-route-pageNumber="@i">@i</a>
+                </li>
+            }
+            <li class="page-item @nextDisabled">
+                <a class="page-link" asp-route-pageNumber="@(Model.PostsResponse.Page + 1)">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>

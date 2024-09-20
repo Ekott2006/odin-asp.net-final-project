@@ -1,0 +1,29 @@
+
+.user-list {
+    list-style: none;
+    max-width: 500px;
+    margin: 0 1rem;
+}
+.user-item {
+    display: flex;
+    align-items: center;
+}
+
+.user-item-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 10px;
+    margin-right: auto;
+}
+.user-item-img-rounded {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 100%;
+}
+.user-item-username {
+    font-weight: bold;
+    display: inline;
+    margin: 0;
+}
+

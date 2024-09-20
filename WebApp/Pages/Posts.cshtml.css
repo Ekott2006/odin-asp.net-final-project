@@ -1,0 +1,27 @@
+.comments {
+    background: lightgrey;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.comment-img-rounded {
+    border-radius: 100%;
+    width: 3rem;
+    height: 3rem;
+}
+
+.comment-username {
+    font-weight: 600;
+    margin: 0;
+}
+
+.comment-footer > button {
+    margin: 10px 0;
+}

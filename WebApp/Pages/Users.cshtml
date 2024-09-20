@@ -1,0 +1,36 @@
+@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using WebApp.DTOs.Users
+@using WebApp.Model.ViewModel
+@model WebApp.Pages.UsersModel
+@{
+    ViewData["Title"] = "All Users Page";
+}
+
+<h1> All Users Page </h1>
+
+<div class="users">
+    @foreach (UserItemViewModel userItem in Model.ViewModel.Where(userItem => userItem.UserViewModels.Any()))
+    {
+        <h3>@userItem.Title </h3>
+        <ul class="user-list">
+            @foreach (UserResponse response in userItem.UserViewModels)
+            {
+                <li class="user-item">
+                    <div class="user-item-header">
+                        <img class="user-item-img-rounded" alt="@response.UserName's profile picture" src="@response.ProfilePictureLink"/>
+                        <p class="user-item-username"> @response.UserName</p>
+                    </div>
+                    @if (userItem.FriendStatus is not null && userItem.ButtonName is not null)
+                    {
+                        <form method="post">
+                            <input asp-for="@Model.Status" value="@userItem.FriendStatus" hidden="hidden"/>
+                            <input asp-for="@Model.Id" value="@response.Id" hidden="hidden"/>
+                            <button class="btn btn-info">@userItem.ButtonName</button>
+                        </form>
+                    }
+                </li>
+            }
+        </ul>
+    }
+</div>

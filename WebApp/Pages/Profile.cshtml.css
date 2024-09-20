@@ -1,0 +1,20 @@
+.profile-card {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem 4rem;
+    background: blue;
+    color: white;
+    margin: 2rem 0;
+}
+
+.profile-img-div {
+    display: grid;
+    gap: 1rem;
+}
+
+.profile-img {
+    border-radius: 100%;
+    width: 10rem;
+    height: 10rem;
+}

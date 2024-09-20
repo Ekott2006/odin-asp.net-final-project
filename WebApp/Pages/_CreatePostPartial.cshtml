@@ -1,0 +1,19 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model WebApp.Model.ViewModel.CreatePostViewModel
+@{
+    Guid id = Guid.NewGuid();
+}
+
+<form method="get" asp-page-handler="Create">
+    <input name="handler" value="Create" hidden="hidden"/>
+    <input asp-for="CreatePostRequest.ReturnUrl" value="@Model.ReturnUrl" hidden="hidden"/>
+    <div class="mb-3">
+        <label asp-for="CreatePostRequest.Content" class="form-label fw-bold" for="content-@id"> New Post: </label>
+        <textarea class="form-control" asp-for="CreatePostRequest.Content" rows="3" id="content-@id" ></textarea>
+    </div>
+
+    <div class="mb-3 d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary" asp-page="./Index"> Create </button>
+    </div>
+</form>
+@await Component.InvokeAsync("UploadImage", Model.ImageViewModel);

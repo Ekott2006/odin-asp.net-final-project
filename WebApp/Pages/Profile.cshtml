@@ -1,0 +1,32 @@
+@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using WebApp.DTOs.Posts
+@model WebApp.Pages.ProfileModel
+
+@{
+    ViewData["Title"] = "My Profile";
+    ViewData["AddSpacing"] = true;
+}
+<div class="profile-card">
+    <div class="profile-img-div">
+        <img class="profile-img" alt="@Model.GetUser.UserName's Profile Image" src="@Model.GetUser.ProfilePictureLink"/>
+        @await Component.InvokeAsync("UploadImage", Model.ImageViewModel)
+    </div>
+
+    <div class="profile-text">
+        <h2>@Model.GetUser.UserName</h2>
+        <p class="profile-email">@Model.GetUser.Email</p>
+    </div>
+</div>
+
+<div class="all-posts">
+    <div class="posts">
+        <partial name="_CreatePostPartial" model="Model.CreatePostViewModel"/>
+        <h2> My Posts</h2>
+
+        @foreach (PostResponse post in Model.GetUser.Posts)
+        {
+            @await Component.InvokeAsync("PostItem", post)
+        }
+    </div>
+</div>

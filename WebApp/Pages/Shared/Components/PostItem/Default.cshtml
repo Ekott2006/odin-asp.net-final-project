@@ -1,0 +1,68 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using WebApp.Model.Enum
+@model WebApp.DTOs.Posts.PostResponse
+
+@{
+    Dictionary<string, string> dictionary = new()
+    {
+        { "Id", Model.Id.ToString() }
+    };
+}
+
+<div class="post">
+    <div class="post-header">
+        <img class="post-img-rounded" alt="@Model.UserName's profile picture" src="@Model.ProfilePictureLink"/>
+        <p class="post-username"> @Model.UserName</p>
+    </div>
+    <div class="post-body">
+        @if (Model.PostType == PostType.Image)
+        {
+            <img class="post-img" alt="" src="@Model.ImageLink"/>
+            <p class="post-caption">@Model.Caption</p>
+        }
+        else
+        {
+            <p class="post-content">@Model.Content</p>
+        }
+    </div>
+
+    <div class="post-footer">
+        @* TODO: Add SVG*@
+        <button class="post-footer-button" data-custom="@(Model.DidUserLike ? "true" : "false")" data-id="@Model.Id">
+            <img src="@(Model.DidUserLike ? "/lib/bootstrap-icons-1.11.3/hand-thumbs-up-fill.svg" : "/lib/bootstrap-icons-1.11.3/hand-thumbs-up.svg")" alt="Like" id="like-img-@Model.Id" class="like-img"/>
+            <span><span id="like-count-@Model.Id">@Model.LikesCount</span> Like(s) </span>
+        </button>
+        <button class="post-footer-button">
+            <a asp-page="/Posts" asp-all-route-data="dictionary" class="custom-link">
+                <img src="/lib/bootstrap-icons-1.11.3/chat-text.svg" alt="Comment"/>
+                <span>@Model.CommentsCount Comment(s)</span>
+            </a>
+        </button>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll(".post-footer-button").forEach(el => {
+        el.onclick = async () => {
+            const id = el.dataset.id
+            const didUserLike = el.dataset.custom
+            const likeCountElem = document.querySelector(`#like-count-${id}`);
+            const likeImgElem = document.querySelector(`#like-img-${id}`)
+
+            fetch(`/?handler=HandleLike&Id=${id}`)
+            .then(x => x.text())
+                .then(_ => {
+                    const newValue = toggleLike(didUserLike === "true", parseInt(likeCountElem.innerText))
+                    likeCountElem.innerText = newValue.likeCount;
+                    likeImgElem.src = newValue.didUserLike ? "/lib/bootstrap-icons-1.11.3/hand-thumbs-up-fill.svg" : "/lib/bootstrap-icons-1.11.3/hand-thumbs-up.svg"
+                    el.dataset.custom = newValue.didUserLike.toString()
+                })
+        }
+    });
+
+        function toggleLike(didUserLike, likeCount) {
+            const newDidUserLike = !didUserLike;
+            const newLikeCount = newDidUserLike ? likeCount + 1 : likeCount - 1;
+            return {didUserLike: newDidUserLike, likeCount: newLikeCount};
+        }
+</script>

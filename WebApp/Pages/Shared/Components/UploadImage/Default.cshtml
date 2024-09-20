@@ -1,0 +1,59 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model WebApp.Model.ViewModel.UploadImageViewModel
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadImageModal">
+    Upload Image
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="uploadImageModal" tabindex="-1" aria-labelledby="uploadImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="uploadImageModalLabel">Upload Image Here</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+                <input asp-for="UploadImageRequest.ReturnUrl" value="@Model.ReturnUrl" hidden="hidden"/>
+                <div class="modal-body">
+                    <div asp-validation-summary="All"></div>
+                    <div class="mb-3">
+                        <input class="form-control" type="file" accept=".jpg, .jpeg, .png" asp-for="UploadImageRequest.UploadedFile" id="UploadedFile">
+                        <span class="invalid-feedback" asp-validation-for="UploadImageRequest.UploadedFile"></span>
+                    </div>
+                    @if (Model.ShowText)
+                    {
+                        <div class="mb-3">
+                            <label asp-for="UploadImageRequest.Caption">Caption</label>
+                            <input class="form-control" asp-for="UploadImageRequest.Caption">
+                            <span class="invalid-feedback" asp-validation-for="UploadImageRequest.Caption"></span>
+                        </div>
+                    }
+                    <img src="#" alt="Preview Uploaded Image" id="file-preview" style="display: none;width:100%;"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" asp-page="@Model.AspPage" disabled="disabled" id="form-button"> Upload </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const input = document.querySelector("#UploadedFile");
+    const filePreview = document.querySelector("#file-preview");
+    const formButton = document.querySelector("#form-button");
+    input.onchange = () => {
+        if (input.files.length === 0) return
+        filePreview.src = URL.createObjectURL(input.files[0])
+        filePreview.style.display = "block"
+    }
+    // Make Button Clickable
+    filePreview.onload = () => {
+        formButton.disabled = false;
+    }
+</script>

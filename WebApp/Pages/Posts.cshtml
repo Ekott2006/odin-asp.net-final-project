@@ -1,0 +1,100 @@
+@page "{id}"
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using WebApp.DTOs.Comments
+@model WebApp.Pages.PostsModel
+@{
+    ViewData["Title"] = "Post page";
+}
+
+@await Component.InvokeAsync("PostItem", Model.GetPostResponse)
+
+<h3>Comments</h3>
+
+<form method="get" asp-page-handler="Create">
+    <input name="handler" value="Create" hidden="hidden" />
+    <div class="mb-3">
+        <label asp-for="NewComment" class="form-label fw-bold"> New Comment: </label>
+        <textarea class="form-control" asp-for="NewComment" rows="3" ></textarea>
+        <span asp-validation-for="NewComment" class="invalid-feedback"></span>
+    </div>
+
+    <div class="mb-3 d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>
+@* TODO: Add New Comment*@
+@foreach (CommentResponse comment in Model.GetPostResponse.Comments)
+{
+    <div class="comments">
+        <div class="comment-header">
+            <img class="comment-img-rounded" alt="@comment.UserName's profile picture"
+                 src="@comment.ProfilePicture"/>
+            <p class="comment-username"> @comment.UserName</p>
+        </div>
+
+        <p class="comment-content">@comment.Content</p>
+        @if (comment.UserId == Model.UserId)
+        {
+            <div class="comment-footer">
+                <!-- Edit Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
+                    Edit
+                </button>
+
+                <!-- Edit Modal -->
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="editModalLabel">Edit Comment</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form method="post" asp-page-handler="Edit">
+                                <div class="modal-body">
+                                    <input asp-for="CommentId" value="@comment.Id" hidden="hidden"/>
+                                    <div class="mb-3">
+                                        <label asp-for="@Model.Comment" class="form-label"></label>
+                                        <textarea class="form-control" asp-for="@Model.Comment" rows="3">@comment.Content</textarea>
+                                        <span asp-validation-for="@Model.Comment" class="invalid-feedback"></span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delete Button trigger modal -->
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete">
+                    Delete
+                </button>
+
+                <!-- Delete Modal -->
+                <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="deleteModalLabel">Delete Comment</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you show you want to delete this comment?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <form asp-page-handler="Delete" method="post">
+                                    <input asp-for="CommentId" value="@comment.Id" hidden="hidden"/>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
