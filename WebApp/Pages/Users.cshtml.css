@@ -2,7 +2,7 @@
 .user-list {
     list-style: none;
     max-width: 500px;
-    margin: 0 1rem;
+    padding: 0;
 }
 .user-item {
     display: flex;

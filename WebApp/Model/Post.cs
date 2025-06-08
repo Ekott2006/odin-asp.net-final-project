@@ -8,6 +8,6 @@ public class Post
     public User Author { get; set; }
     public List<Comment> Comments { get; set; } = [];
     public List<User> Likes { get; set; } = [];
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public required PostDetail PostDetail { get; set; }
 }

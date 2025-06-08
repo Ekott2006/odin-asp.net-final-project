@@ -34,7 +34,8 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 700px;
-    width: 100%
+    width: 100%;
+    gap: 1rem;
 }
 
 .custom-link {

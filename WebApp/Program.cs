@@ -7,17 +7,17 @@ using WebApp.Repository;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<DataContext>(options => options.UseSqlite($"Data Source=final_project.sqlite3", o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
-builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<DataContext>();
+// builder.Services.AddDbContext<DataContext>(options => options.UseSqlite($"Data Source=final_project.sqlite3", o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<DataContext>();
 builder.Services.AddScoped<CommentRepo>();
 builder.Services.AddScoped<FriendRepo>();
 builder.Services.AddScoped<PostRepo>();
 builder.Services.AddScoped<UserRepo>();
 
-builder.Services.AddRazorPages(options =>
-{
-    options.Conventions.AuthorizeFolder("/");
-});
+builder.Services.AddRazorPages(options => { options.Conventions.AuthorizeFolder("/"); });
 builder.Services.AddScoped<SeedDatabase>(); // Remove Later
 
 WebApplication app = builder.Build();

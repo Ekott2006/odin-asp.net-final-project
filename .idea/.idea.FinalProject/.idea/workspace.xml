@@ -10,15 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc689a38-8f86-4705-badc-5777a0775fee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/WebApp/Data.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/Model/ViewModel/CreatePostViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/Components/PostItem/Default.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/Components/PostItem/Default.cshtml.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/Components/UploadImage/Default.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_LoginPartial.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/Pages/_CreatePostPartial.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/ViewComponents/PostItemViewComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/ViewComponents/UploadImageViewComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Helper/SeedDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Helper/SeedDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Model/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/Post.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Users.cshtml.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Users.cshtml.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/_CreatePostPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/_CreatePostPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/WebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/WebApp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/final_project.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +32,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DpaMonitoringSettings">
-    <option name="autoShow" value="false" />
+    <option name="firstShow" value="false" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -38,40 +44,35 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2fiOwAA4SjDFXsBUreZ2aSdDWog" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.WebApp: https.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.web.browsers",
-    "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Nsikak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Nsikak\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Nsikak\\AppData\\Local\\Symbols\\src"
-    ]
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.WebApp: https.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.web.browsers&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.WebApp: https">
     <configuration name="WebApp: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebApp/WebApp.csproj" />
@@ -130,12 +131,15 @@
       <workItem from="1714280676043" duration="1473000" />
       <workItem from="1714285985928" duration="2200000" />
       <workItem from="1714356470731" duration="2353000" />
+      <workItem from="1749327523774" duration="9694000" />
+      <workItem from="1749377689359" duration="66000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -148,14 +152,26 @@
           <line>37</line>
           <properties documentPath="C:\Users\Nsikak\Documents\VsCodeProject\OdinProject\ASP.NET\FinalProject\WebApp\Pages\Posts.cshtml.cs" containingFunctionPresentation="Method 'OnGetCreate'">
             <startOffsets>
-              <option value="1256" />
+              <option value="1276" />
             </startOffsets>
             <endOffsets>
-              <option value="1296" />
+              <option value="1277" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.OperationCanceledException" breakIfHandledByOtherCode="false" displayValue="System.OperationCanceledException" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.Tasks.TaskCanceledException" breakIfHandledByOtherCode="false" displayValue="System.Threading.Tasks.TaskCanceledException" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

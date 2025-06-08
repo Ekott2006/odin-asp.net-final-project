@@ -1,4 +1,6 @@
-﻿using Bogus;
+﻿using System.Security.Cryptography;
+using System.Text;
+using Bogus;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
@@ -15,28 +17,33 @@ public class SeedDatabase(
     UserManager<User> userManager,
     PostRepo postRepo,
     CommentRepo commentRepo,
-    FriendRepo friendRepo, UserRepo userRepo,
+    FriendRepo friendRepo,
+    UserRepo userRepo,
     ILogger<SeedDatabase> logger)
 {
+    public readonly List<string> UserNames = ["Hello123", "HelloWorld"];
+    public const string Password = "123456SAD!@#$hello";
+
     public async Task FakeData()
     {
         await context.Database.EnsureCreatedAsync();
         if (await context.Users.AnyAsync()) return;
-
-        List<User> users = new UserFaker().Generate(10);
+        
+        List<User> users =
+            [..new UserFaker().Generate(10), ..UserNames.Select(x => new UserFaker(x)).ToList()];
         Random random = new();
+
         foreach (User user in users)
         {
-            string password = new Faker().Internet.Password() + "1234567890"[random.Next(9)] +
-                              "!@#$%^&*"[random.Next(5)];
-            IdentityResult result = await userManager.CreateAsync(user, password);
+            user.ProfilePicture = $"https://avatar.iran.liara.run/public/?username={user.UserName}";
+            IdentityResult result = await userManager.CreateAsync(user, Password);
             if (!result.Succeeded)
             {
                 logger.LogInformation("USERS SEEDING ERRORS: {}", result.ToString());
                 continue;
             }
 
-            logger.LogInformation("USER Seeding Successful!!! Username: {}, Password: {}", user.UserName, password);
+            logger.LogInformation("USER Seeding Successful!!! Username: {}, Password: {}", user.UserName, Password);
             for (int i = 0; i < random.Next(3, 10); i++)
             {
                 await postRepo.Create(new CreatePostRequestTextFaker(user.Id));
@@ -78,20 +85,22 @@ public class SeedDatabase(
             }
         }
 
-        foreach (User? user in users)
+        foreach (User user in users)
         {
             User? userData = await userRepo.Get(user.Id);
             if (userData is null) return;
-            logger.LogInformation("Username: {} Posts: {}, Post 1 ID: {}", userData.UserName, userData.Posts.Count, userData.Posts.First().Id);
+            logger.LogInformation("Username: {} Posts: {}, Post 1 ID: {}", userData.UserName, userData.Posts.Count,
+                userData.Posts.First().Id);
         }
+
         logger.LogInformation("Seeding Complete");
     }
 
     private sealed class UserFaker : Faker<User>
     {
-        public UserFaker()
+        public UserFaker(string? userName = null)
         {
-            RuleFor(d => d.UserName, f => f.Internet.UserName());
+            RuleFor(d => d.UserName, f => userName ?? f.Internet.UserName());
             RuleFor(d => d.Email, f => f.Internet.Email());
             RuleFor(d => d.ProfilePicture, f => f.Internet.Avatar());
         }
