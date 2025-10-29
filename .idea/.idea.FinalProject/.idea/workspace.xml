@@ -10,21 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc689a38-8f86-4705-badc-5777a0775fee" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FinalProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Areas/Identity/Pages/Account/Login.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Helper/SeedDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Helper/SeedDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Model/Post.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/Post.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Users.cshtml.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Users.cshtml.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/_CreatePostPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/_CreatePostPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Data/Migrations/20250608094059_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Data/Migrations/20250608094059_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Data/Migrations/DataContextModelSnapshot.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/WebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/WebApp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/final_project.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/final_project.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/final_project.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,23 +50,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.WebApp: https.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.web.browsers&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.WebApp: IIS Express.executor": "Run",
+    ".NET Launch Settings Profile.WebApp: https.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "terminal",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.WebApp: https">
+}]]></component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.WebApp: IIS Express">
     <configuration name="WebApp: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebApp/WebApp.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -85,6 +84,7 @@
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -100,6 +100,7 @@
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -115,6 +116,7 @@
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -133,6 +135,8 @@
       <workItem from="1714356470731" duration="2353000" />
       <workItem from="1749327523774" duration="9694000" />
       <workItem from="1749377689359" duration="66000" />
+      <workItem from="1761679836606" duration="1065000" />
+      <workItem from="1761681143957" duration="1274000" />
     </task>
     <servers />
   </component>

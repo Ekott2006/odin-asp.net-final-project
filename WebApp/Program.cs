@@ -8,8 +8,14 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // builder.Services.AddDbContext<DataContext>(options => options.UseSqlite($"Data Source=final_project.sqlite3", o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
-builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
+builder.Services.AddDbContext<DataContext>(options => options
+    .UseMySql(
+        builder.Configuration.GetConnectionString("DatabaseConnection"),
+        new MariaDbServerVersion(new Version(12, 0, 2))
+    )
+);
+// builder.Services.AddDbContext<DataContext>(options =>
+//     options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<DataContext>();
 builder.Services.AddScoped<CommentRepo>();
